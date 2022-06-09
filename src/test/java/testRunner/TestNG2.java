@@ -9,9 +9,6 @@ import org.testng.annotations.Test;
 @CucumberOptions(features="src/test/java/features",glue ="stepDefinitions",monochrome=true,
         tags ="@Credentialing",
         plugin= {"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"}
-// "html:target/cucumber.html", "json:target/cucumber.json",
-//"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
-//"rerun:target/failed_scenarios.txt"}
 
 )
 
