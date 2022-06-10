@@ -31,10 +31,9 @@ public class addToCart_Steps {
         Thread.sleep(2000);
     }
 
-
     @When("click first notebook")
     public void clickFirstNotebook() throws InterruptedException {
-        addToCartPage.setFirstNotebook().get(1).click();
+        addToCartPage.setFirstNotebook().get(0).click();
         Thread.sleep(2000);
         productName = addToCartPage.setProductName().getText();
     }
@@ -62,7 +61,13 @@ public class addToCart_Steps {
         Thread.sleep(2000);
     }
 
-    @When("click on add to cart icon")
+    @When("select warranty +{int} months")
+    public void selectWarrantyMonths(int arg0) throws InterruptedException {
+        addToCartPage.setProductWarranty().click();
+        Thread.sleep(2000);
+    }
+
+    @And("click on add to cart icon")
     public void clickOnAddToCartIcon() throws InterruptedException {
         addToCartPage.setAddToCartIcon().click();
         Thread.sleep(2000);
@@ -77,6 +82,7 @@ public class addToCart_Steps {
         System.out.println("First Notebook Name: "+productName);
         Thread.sleep(3000);
     }
+
 
 }
 

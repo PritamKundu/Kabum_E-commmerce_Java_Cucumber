@@ -7,7 +7,8 @@ Feature: Verify product successfully saved add to cart section
     And enter zip code & print shipping values
     When close the shipping modal box
     And click on purchase button
-    When click on add to cart icon
+    When select warranty +12 months
+    And click on add to cart icon
     Then validate this product available in this cart
 
 

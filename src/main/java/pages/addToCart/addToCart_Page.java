@@ -21,6 +21,7 @@ public class addToCart_Page {
     By printValue = By.xpath("/html/body/div[2]/main/article/section/div[2]/div/div[1]/div[3]/div/div/div[2]/div/div");
     By closeModal = By.xpath("//*[@data-testid=\"btnClose\"]");
     By purchaseButton = By.xpath("//body/div[@id='__next']/main[1]/article[1]/section[1]/div[2]/div[1]/div[2]/div[1]/div[2]/button[1]/*[1]");
+    By productWarranty = By.xpath("//div[@class='sc-hpDagy hEHwok cardOption']//input[@name='garantia']");
     By addToCartIcon = By.xpath("//a[@title=\"Carrinho\"]");
     By productName = By.xpath("//*[@id=\"__next\"]/main/article/section/div[2]/h1");
     By addToCartProductVerify = By.xpath("//*[@id=\"sellersContainer\"]/div/div/div/div[1]/div[1]/a");
@@ -77,6 +78,10 @@ public class addToCart_Page {
 
     public WebElement setPurchaseButton() {
         return driver.findElement(purchaseButton);
+    }
+
+    public WebElement setProductWarranty() {
+        return driver.findElement(productWarranty);
     }
 
     public WebElement setAddToCartIcon() {
