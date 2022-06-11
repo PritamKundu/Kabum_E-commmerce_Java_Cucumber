@@ -16,8 +16,7 @@ public class Hooks{
 		this.testContextSetup = testContextSetup;
 	}
 	@After
-	public void AfterScenario() throws IOException
-	{
+	public void AfterScenario() throws IOException, InterruptedException {
 		testContextSetup.testBase.WebDriverManager().quit();
 	}
 

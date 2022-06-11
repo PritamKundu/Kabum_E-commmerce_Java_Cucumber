@@ -2,20 +2,20 @@ package utils;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.time.Duration;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 
 public class TestBase {
 
     public WebDriver driver;
 
-    public WebDriver WebDriverManager() throws IOException {
+    public WebDriver WebDriverManager() throws IOException, InterruptedException {
         FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "//src//test//resources//global.properties");
         Properties prop = new Properties();
         prop.load(fis);
@@ -27,21 +27,23 @@ public class TestBase {
 
         if (driver == null) {
             if (browser.equalsIgnoreCase("chrome")) {
-
                 ChromeOptions options = new ChromeOptions();
-
                 options.addArguments("--disable-notifications");
                 System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "//src//test//resources//chromedriver.exe");
                 driver = new ChromeDriver(options);
+
             }
             if (browser.equalsIgnoreCase("firefox")) {
-                System.setProperty("webdriver.gecko.driver", "//Users//rahulshetty//Downloads//geckodriver 5");
-                driver = new FirefoxDriver();
+                FirefoxOptions options = new FirefoxOptions();
+                options.addArguments("--disable-notifications");
+                System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "//src//test//resources//geckodriver.exe");
+                driver = new FirefoxDriver(options);
+
             }
             assert driver != null;
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
             driver.manage().window().maximize();
             driver.get(url);
+            Thread.sleep(3000);
         }
         return driver;
     }

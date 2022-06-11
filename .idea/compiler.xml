@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Kabum_Ecommerce" />
         <module name="CRS_Cuccumber_New" />
       </profile>
     </annotationProcessing>
